@@ -1,0 +1,13 @@
+
+
+
+@media (max-width: 800px) {
+  .box {
+    width: 95%;
+    margin: 5px;
+  }
+
+  .conteudo {
+    flex-direction: column;
+  }
+}

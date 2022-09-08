@@ -1,0 +1,14 @@
+[
+  {
+    "label": "Esporte",
+    "id": 1
+  },
+  {
+    "label": "Aventura",
+    "id": 2
+  },
+  {
+  "label":"Ação",
+  "id":3
+  }
+]

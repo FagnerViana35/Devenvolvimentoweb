@@ -1,0 +1,148 @@
+/*
+https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+https://flexboxfroggy.com/
+http://www.flexboxdefense.com/
+https://developer.mozilla.org/pt-BR/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox
+Não usar no nava Margin
+Não usar display: inline-block;
+Não usar float: right, left...
+Não usar display inline
+Não usar position relative, absolute...
+*/
+/*
+ display:flex; coloca os elementos um do lado do outr
+ align-items: center; coloca os itens que esão um do lado do outros centralizado
+ justify-content: space-between; coloca um espaço entre os dois elementos
+ justify-content: space-around; dá um espaçamento adaquado para os elementos, qdo tem mais de dois elementos
+ justify-content: flex-start; Fica no começo a esquerda
+ justify-content: flex-end; Fica no fim a direita
+  justify-content: center; Fica todos no centro
+ flex-direction: column; Coloca os elementos em coluna 
+
+ flex-wrap: wrap; Quebra depois dos espaçamentos qdo não respeita o pai
+ flex-direction: row; Transforma os elementos em linhas
+ 
+ /* flex-direction: column; Coloca os elementos em coluna
+    flex-wrap: wrap; Coloca os elementos pulando linha apos o limite do pai
+    flex-flow: column wrap; Faz as duas coisas coloca em coluna e pula linha apos o limite do pai
+    flex-grow: 1; Preenche todo o espaço que estava sobrando
+    flex-shrink: 2; Ao contratrio do flex-grow:1; que preenche os espaçamentos que ficam o flex shrink acompanha o media queries qdo for diminuindo
+ */
+
+/*Css referente ao cabeçalho*/
+.cabecalhoPrincipal .container{
+ display:flex;
+ align-items: center;
+ justify-content: space-between;
+}
+.cabecalhoPrincipal-nav{
+    display: flex;
+}
+
+/* Conteúdo referente aos cards de cursos*/
+.conteudoPrincipal-cursos{
+    display: flex;
+    flex-wrap: wrap;
+    }
+.conteudoPrincipal-cursos-link{
+    width: 23%;
+    margin-bottom: 1%;
+}
+.conteudoPrincipal-cursos-link:nth-child(4n){
+    margin-right: 0;
+}
+.conteudoPrincipal-cursos-link:nth-child(4n +1){
+    margin-left: 0;
+}
+
+/* Css referente ao video e o conteudo principal */
+.videoSobre .container{
+    display: flex;
+}
+.videoSobre-sobre{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 2;
+}
+.videoSobre-sobre-list{
+    flex-grow: 1;
+}
+.videoSobre-video{
+    flex-grow: 1;
+    flex-shrink: 2;
+}
+
+/* Css referente ao ropapé*/
+.rodapePrincipal-patrocinadores .container{
+    display: flex;
+    justify-content: space-between;
+}
+.rodapePrincipal-patrocinadores-list{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 70%;
+    margin-left: 5%;
+}
+.rodapePrincipal-contatoForm{
+    width: 25%;
+}
+.rodapePrincipal-contatoForm-fieldset{
+    display: flex;
+}
+.rodapePrincipal-navMap-list{
+    display: flex;
+    flex-flow: column wrap;
+    height: 260px;
+}
+
+
+/* Media Queries Para mobile*/
+@media(max-width: 768px){
+    .cabecalhoPrincipal-nav{
+        flex-direction: column;
+    }
+
+    .cabecalhoPrincipal .container{
+        flex-direction: column;
+        align-items: initial;
+        text-align:center;
+    }
+
+    .conteudoPrincipal-cursos{
+        flex-direction: column;
+    }
+    .conteudoPrincipal-cursos-link {
+        width: 100%;
+    }
+
+    .videoSobre .container{
+        flex-direction: column;
+    }
+    .videoSobre-video{
+        margin: 0 auto;
+    }
+    .rodapePrincipal-navMap-list{
+        height: auto;
+    }
+
+    .rodapePrincipal-patrocinadores .container{
+        flex-direction: column;
+        align-items: center;
+    }
+    .rodapePrincipal-patrocinadores-list {
+        margin: 0;
+        width: 100%;
+    }
+    .rodapePrincipal-contatoForm{
+        width: 100%;
+    }
+
+    .rodapePrincipal-contatoForm-fieldset{
+        justify-content: center;
+    }
+    .cabecalhoPrincipal-nav-link-app{
+        order: -1;
+    }
+}

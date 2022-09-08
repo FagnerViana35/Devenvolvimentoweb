@@ -1,0 +1,87 @@
+@import "styles/variaveis";
+@import "styles/breakpoints";
+
+.navbar {
+  display: flex;
+  padding: 20px 0;
+  justify-content:space-around;
+  // padding: 20px $padding-horizontal;
+  
+  @media (max-width: $desktop_xsm) {
+    padding: 20px $padding-horizontal-mobile;
+  }
+  @media (min-width: $desktop_xsm) and (max-width: $desktop_sm) {
+    padding: 20px $padding-horizontal-sm;
+  }
+  @media (min-width: $desktop_sm) and (max-width: $desktop_md) {
+    padding: 20px $padding-horizontal-md;
+  }
+  
+}
+.logo{
+    .logo_imagem{
+    width: 90px;
+  }
+}
+.menu_ul{
+  display: flex;
+}
+.menu_li{
+  padding-left: 90px;
+  text-decoration: none;
+  list-style: none;
+  font-size: 20px;
+}
+  
+
+
+.header {
+  align-items: center;
+  background-image: url("https://cdn.awsli.com.br/1140x1140/238/238678/banner/c07cbf02d1.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  height: 650px;
+  padding: 0px $padding-horizontal;
+  @media (max-width: $desktop_xsm) {
+    padding: 0px $padding-horizontal-mobile;
+  }
+  @media (min-width: $desktop_xsm) and (max-width: $desktop_sm) {
+    padding: 0px $padding-horizontal-sm;
+  }
+  @media (min-width: $desktop_sm) and (max-width: $desktop_md) {
+    padding: 0px $padding-horizontal-md;
+  }
+  &__text {
+    color: white;
+    font-size: 5rem;
+    min-width: 400px;
+    width: 40%;
+  }
+}
+
+.cardapio {
+  padding: 50px $padding-horizontal;
+  @media (max-width: $desktop_xsm) {
+    padding: 50px $padding-horizontal-mobile;
+  }
+  @media (min-width: $desktop_xsm) and (max-width: $desktop_sm) {
+    padding: 50px $padding-horizontal-sm;
+  }
+  @media (min-width: $desktop_sm) and (max-width: $desktop_md) {
+    padding: 50px $padding-horizontal-md;
+  }
+  &__titulo {
+    color: $dark;
+    font-size: 3rem;
+    margin-bottom: 30px;
+  }
+  &__filtros {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    width: 100%;
+  }
+}

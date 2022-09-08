@@ -1,0 +1,65 @@
+.header{
+    font-family: Arial, Helvetica, sans-serif;
+
+    &__logo{
+        text-align: center;
+    }
+
+    &__img{
+        max-width: 350px;
+    }
+
+    .menu{
+
+        &__list{
+            display: flex;// faz o link ficar um do lado do outro
+            justify-content:center;//centraliza o menu 
+            border-top: 1px solid $light-grey;//coloca uma linha em cima 
+            border-bottom: 1px solid $light-grey;// coloca uma linha em baixo
+            margin-left: auto;//coloca os margens de forma automatica 
+            margin-right: auto;
+            width: 80%;
+            padding: 20px 0;//padding: cima, direta, baixo e esquerda; padding:top rigth bottom left;
+            @include for-phone-only{
+                width: 90%;
+                padding: 15px 0;
+                flex-wrap: wrap;//para não ter quebra de linha
+            }
+            @include for-tablet-only(){
+                width: 80%;
+                padding: 20px 0;
+            }
+            @include for-desktop-only(){
+                width: 80%;
+                padding: 20px 0;
+            }
+        }
+
+        &__links{
+            position: relative;
+            @include for-phone-only{
+                padding: 5px 0;
+            }
+            &:not(:last-child)::after{//Esses estilos não vai ser apontado para o ultimo filho de um grupo de elementos
+                content: "";
+                position: absolute;
+                bottom: 0;
+                right: -3px;
+                margin: auto;
+                height: 15px;
+                width: 1px;
+                background-color:$light-grey;
+            }
+        }
+
+        &__link{
+            padding:  0 25px;
+            color: $dark-grey;
+            &:hover{
+                color:$purple;
+            }
+        }
+    }
+   
+
+}

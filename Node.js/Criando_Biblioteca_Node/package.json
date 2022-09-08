@@ -1,0 +1,22 @@
+{
+  "name": "criando_biblioteca_node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "cli": "node cli.js ./arquivos/texto1.md",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FagnerVJ/Rest_Api_Node.JS.git"
+  },
+  "keywords": [],
+  "author": "Fagner Viana",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^5.0.1",
+    "node-fetch": "^3.2.3"
+  }
+}

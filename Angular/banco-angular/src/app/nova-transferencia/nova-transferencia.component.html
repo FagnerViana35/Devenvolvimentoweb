@@ -1,0 +1,19 @@
+<section class="container">
+    <form class="formulario" (ngSubmit)="transferir()" #botaoDesabilitado="ngForm">
+        <h2 class="formulario__titulo">Nova Transferência</h2>
+
+        <div class="form-field">
+        <label class="form-field__label" for="valor" >Valor</label>
+        <input class="form-field__input" id="valor" type="number" [(ngModel)]="valor" name="valor" placeholder="Digite o valor..." required>
+        </div>
+
+        <div class="form-field">
+        <label class="form-field__label" for="valor" >Destino</label>
+        <input class="form-field__input" id="valor" type="text" [(ngModel)]="destino" name="destino" placeholder="Digite a conta de destino..." required>
+        </div>
+
+        <div class="botao-wrapper">
+            <button type="submit" class="botao" [disabled]="botaoDesabilitado.form.invalid">Transferir</button>
+        </div>
+    </form>
+</section>

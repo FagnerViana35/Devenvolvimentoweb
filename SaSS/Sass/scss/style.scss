@@ -1,0 +1,300 @@
+///Essas variaveis se refete as cores principais do nosso site
+$purple:#A050BE; 
+$light-grey:#eaeaeb;
+$dark-grey:#464646;
+$yellow:#FABE50;
+$img-width: 45%;
+
+%no-decoration {text-decoration: none;}//Tira o underline dos links
+%u-decoration {text-decoration:underline;}//Coloca o underline nos links
+
+@mixin reset-list {//Reseta o projeto
+        margin: 0;
+        padding: 0;
+        list-style: none;
+}
+
+@mixin flx($property, $jty-cnt) {
+    display: flex;
+    #{$property}: $jty-cnt;
+}
+
+@mixin for-phone-only {
+    @media (max-width: 767.98px){@content;}
+}
+
+@mixin for-tablet-only {
+    @media(min-width: 768px) and (max-width: 1199.98px) {@content;}
+}
+
+@mixin for-desktop-only{
+    @media (min-width: 1200px){ @content; }
+        
+}
+
+@function calculateRem($size){
+    @return $size / 16px * 1rem;
+}
+
+@mixin fontSize($size) {
+    font-size: calculateRem($size);
+}
+
+@import 'header','footer','about', 'artigle', 'collection', 'contact';
+//@import 'footer';
+//@import 'about';
+//@import 'artigle';
+//@import 'collection';
+//@import 'contact';
+
+$directions:top, bottom, left, right;
+$layout-margin-size: 10px;
+
+@each $direction in $directions {
+    %no-margin-#{$direction} {margin-#{$direction}: 0;}
+    %default-margin-#{$direction} {margin-#{$direction}: $layout-margin-size;}
+    %double-margin-#{$direction} {margin-#{$direction}: $layout-margin-size * 2;}
+    %half-margin-#{$direction} {margin-#{$direction}: $layout-margin-size / 2;}
+}
+.main{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-family: Arial, Helvetica, sans-serif;
+
+    &__content{
+        @include for-phone-only{
+            width: 100%;
+        }
+        width: 70%;
+        padding: 40px 8px;
+    }
+
+    &__post{
+        text-align: center;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    &__title{
+        // -webkit-text-stroke-width: 1px;
+        // -webkit-text-stroke-color: rgb(214, 7, 7);
+        //-webkit-text-stroke: 1px black;
+        // color: black;
+        // -webkit-text-fill-color: white;
+        // -webkit-text-stroke-width: 1px;
+        // -webkit-text-stroke-color: black;
+        text-decoration: nome;
+        @include fontSize(22px);
+        color: $dark-grey;
+        letter-spacing: 1.5;//para as letras ficarem espaçadas
+        &:hover{
+            color:$purple;
+        }
+    }
+    &__subtitle{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @extend %default-margin-top, %double-margin-bottom;
+        // margin-top: 10px;
+        // margin-bottom: 20px;
+    }
+    &__date{
+        @extend %no-margin-top, %no-margin-bottom, %default-margin-left, %default-margin-right;
+        //margin: 0 10px;
+        @include fontSize(12px);
+        font-style: italic;
+    }
+    &__tag{
+        @extend %no-margin-top, %no-margin-bottom, %default-margin-left, %default-margin-right;
+        @include fontSize(14px);
+        padding: 5px 7px;
+        color:$purple;
+        border:1px solid $purple;
+        //margin: 0 10px;
+    }
+    &__details{
+        border: 1px solid $light-grey;
+    }
+
+    &__img{
+        width: 100%;       
+    }
+
+    &__description{
+        padding: 40px 0 25px;
+        max-width: 650px;
+        margin-left: auto;
+        margin-right: auto;
+        //font-size: 14px;
+        @include fontSize(14px);
+    }
+
+    &__btn{
+        text-decoration: none;
+        font-size: 16px;
+        letter-spacing: 1.5;
+        color: $purple;
+        background-color: $yellow;
+        padding: 10px 20px;
+        transition: .3s;//coloca junto com o hover
+        &:hover{
+           color: $yellow; 
+           background-color: $purple;
+        }        
+    }
+
+    &__info{
+        display: flex;
+        justify-content: space-between ;//
+        align-items: center;
+        border-top: 1px solid $light-grey;
+        margin-top: 30px;
+    }
+    &__author{
+        width: 50%;
+        border-right: 1px solid $light-grey;
+    }
+
+    &__p{
+        font-size: 14px;
+        color: $dark-grey;
+
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    &__comments{
+        width: 50%;
+    }
+
+    &__a{
+       text-decoration: none;
+       font-size: 14px;
+       color: $dark-grey;
+       @extend %default-margin-top, %default-margin-bottom;
+    //    margin-top: 10px;
+    //    margin-bottom: 10px;
+       &:hover{
+           color: $purple;
+       }
+    }
+
+    &__sidebar{
+        width: 25%;
+        padding: 40px 10px;
+    }
+    .sidebar{
+        &__top{
+            border: 1px solid $light-grey;
+            text-align: center;
+            padding: 10px 20px;
+            margin: 0;
+            letter-spacing: 1.5px;
+        }
+        &__title{
+            background-color: $yellow;
+            text-align: center;
+            padding: 10px 20px;
+            margin: 0;
+            letter-spacing: 1.5px
+        }
+        &__posts{
+            @include reset-list;
+        }
+        &__list{
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            align-items: center;
+            padding: 15px 0;
+            &:not(:last-child){//adicina um estilo para o ultimo elemento
+                border-bottom: 1px dashed $light-grey;//coloca uma bordar em cima do elemento
+            }
+        }
+        &__img{
+            width: 40%;
+        }
+        &__details{
+            width: 50%;
+            padding-left: 10px;
+        }
+        &__post-title{
+            font-size: 14px;
+            color: $purple;
+            @extend %no-decoration;//extende a variavel do %no-decoration {text-decoration: none;}
+
+            &:hover{
+                @extend %u-decoration;//extende a variavel do %u-decoration {text-decoration: none;}
+            }
+        }
+        &__post-date{
+            font-size: 12px;
+            margin: 5px 0 0 0;
+        }
+    }
+}
+
+/*
+
+.header{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.header__logo{
+    text-align: center;
+}
+.header__logo .header__img{
+    max-width: 350px;
+}
+.header__menu .menu__list{
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid $light-grey;
+    border-bottom: 1px solid $light-grey;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    padding: 20px 0;
+}
+.header__menu .menu_list .menu__links{
+    position: relative;
+}
+.header__menu .menu__list .menu__links:not(:last-child)::after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: -3px;
+    margin: auto;
+    height: 15px;
+    width: 1px;
+    background-color:$light-grey;
+}
+.header__menu .menu__list .menu__links .menu__link{
+    padding:  0 25px;
+    color: $dark-grey;
+}
+.header__menu .menu_list .menu__links .menu__link:hover{
+    color:$purble;
+}
+Trecho que codigo referente ao Footer
+.footer{
+    text-align: center;
+    padding: 20px 0;
+    font-family: Arial, Helvetica, sans-serif;
+
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+.footer .footer__logo{
+    max-width: 100px;
+}
+.footer .footer.txt{
+    margin: auto;
+    font-size: 14px;
+}
+*/
